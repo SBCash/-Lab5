@@ -67,7 +67,7 @@ int main()
 		cout << shipLength << endl;
 
 		//Read the shield capacity
-		short shieldCapacity;
+		int shieldCapacity;
 		inFileEnemy.read((char*)&shieldCapacity, sizeof(shieldCapacity));
 		cout << shieldCapacity << endl;
 
