@@ -140,7 +140,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Lab5.cpp" />
-    <ClCompile Include="extrafile.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="extrafile.h" />
