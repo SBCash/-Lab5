@@ -183,21 +183,26 @@ void WeakestOverall(vector<Ship>& ships) {
 		sums.push_back(sum);
 		sum = 0;
 	}
-	/*for (int k = 0; k < sums.size(); k++) {
-		cout << sums[k] << " ";
-	}*/
-	int index = 0;
-	int min;
-	for (unsigned int k = 0; k < sums.size(); k++) {
-		if (sums[k] != 0) {
-			min = sums[k];
-		}
-		if (sums[k] < min) {
-			min = sums[k];
-			cout << min << endl;
+	vector<unsigned int> mins;
+	for (unsigned int i = 0; i < sums.size(); i++) {
+		if (sums[i] > 0) {
+			mins.push_back(sums[i]);
 		}
 	}
-	/*cout << "Name: " << ships[index].GetName() << endl;
+	unsigned int min = mins[0];
+	for (unsigned int j = 0; j < mins.size(); j++) {
+		if (mins[j] < min) {
+			min = mins[j];
+		}
+	}
+	unsigned int index = 0;
+	for (unsigned int k = 0; k < sums.size(); k++) {
+		if (sums[k] == min) {
+			index = k;
+		}
+	}
+	cout << index << endl;
+	cout << "Name: " << ships[index].GetName() << endl;
 	cout << "Class: " << ships[index].GetShipClass() << endl;
 	cout << "Length: " << ships[index].GetShipLength() << endl;
 	cout << "Shield capacity: " << ships[index].GetShieldCapacity() << endl;
@@ -208,7 +213,7 @@ void WeakestOverall(vector<Ship>& ships) {
 		sum += ships[index].weapons[j].GetPowerRating();
 	}
 	cout << "Total firepower: " << sum << endl;
-	sum = 0;*/
+	sum = 0;
 }
 
 void PrintUnarmedShips(vector<Ship>& ships) {
